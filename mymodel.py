@@ -5,7 +5,7 @@ class Model(nn.Module):
     def __init__(self, dropout: float = 0.2) -> None:
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(12*128*128, 256),
+            nn.Conv2d(12*128*128, 256, kernel_size=11),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3),
             nn.Conv2d(256, 192, kernel_size=5),
