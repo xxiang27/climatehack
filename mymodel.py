@@ -30,7 +30,7 @@ class Model(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = features.view(-1, 12 * 128 * 128) / 1024.0
+        x = x.view(-1, 12 * 128 * 128) / 1024.0
         x = self.features(x)
         x = self.avgpool(x)
         x = self.classifier(x)
