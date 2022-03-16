@@ -29,8 +29,8 @@ class Model(nn.Module):
             nn.Linear(in_features=256, out_features=24 * 64 * 64)
         )
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = x.view(-1, 12 * 128 * 128) / 1024.0
+    def forward(self, features: torch.Tensor) -> torch.Tensor:
+        x = features.view(-1, 12 * 128 * 128) / 1024.0
         x = self.features(x)
         x = self.avgpool(x)
         x = self.classifier(x)
