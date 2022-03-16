@@ -19,10 +19,10 @@ class Model(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
         )
-        self.avgpool = nn.AdaptiveAvgPool2d((128, 128))
+        self.avgpool = nn.AdaptiveAvgPool2d((6, 6))
         self.classifier = nn.Sequential(
             nn.Dropout(p=dropout),
-            nn.Linear(in_features=128, out_features=256),
+            nn.Linear(in_features=256*6*6, out_features=256),
             nn.ReLU(inplace=True),
             nn.Linear(in_features=256, out_features=256),
             nn.ReLU(inplace=True),
